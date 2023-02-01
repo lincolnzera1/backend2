@@ -60,4 +60,4 @@ app.post('/api', (req, res) => {
 
 
 
-app.listen(3000, () => console.log("everythings is all right my master"))
+app.listen(process.env.PORT || 10000, () => console.log("everythings is all right my master"))
