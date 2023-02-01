@@ -1,9 +1,8 @@
+require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser');
 const app = express();
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-
-
 
 // const CadastroRotas = require("./routes")
 
@@ -19,6 +18,7 @@ app.get('/', (req, res) => {
 
 app.post('/api', (req, res) => {
     const send = (pergunta) => {
+        
 
         const frase = JSON.stringify(req.body.name)
 
@@ -28,7 +28,7 @@ app.post('/api', (req, res) => {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: "Bearer " + "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",
+            Authorization: "Bearer " + process.env.PASS,
           },
           body: JSON.stringify({
             model: "text-davinci-003",
